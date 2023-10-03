@@ -1,5 +1,5 @@
 import * as ActionTypes from "../actionTypes";
-import axios from "axios";
+import axios from "../../../config/axios.config";
 
 export const AddProductToStore = (product) => {
   return {
@@ -11,7 +11,7 @@ export const AddProductToStore = (product) => {
 export const AddProductToDB = (product) => {
   return (dispatchEvent) => {
     axios
-      .post("http://localhost:5000/api/product", product)
+      .post("/product", product)
       .then((response) => {
         console.log("Action Log: ", response);
         dispatchEvent(AddProductToStore(response.data));

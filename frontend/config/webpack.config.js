@@ -10,7 +10,7 @@ let path = require("path"), //path module of node framework
     //api/helloworld >>>
     devServer: {
       port: 3000,
-      historyApiFallback: true, //localhost:9092/user
+      historyApiFallback: true, //localhost:3000/user
     },
     // Rules of how webpack will take our files, complie & bundle them for the browser
     module: {
@@ -20,6 +20,9 @@ let path = require("path"), //path module of node framework
           exclude: /nodeModules/,
           use: {
             loader: "babel-loader",
+            options: {
+              configFile: path.resolve(__dirname, ".babelrc"),
+            },
           },
         },
         {
@@ -32,7 +35,11 @@ let path = require("path"), //path module of node framework
         },
       ],
     },
-    plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: path.join(__dirname, "../src", "index.html"),
+      }),
+    ],
   };
 
 module.exports = config;
