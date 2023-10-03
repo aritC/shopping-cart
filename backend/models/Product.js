@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const schemaObj = mongoose.Schema;
 
-mongoose.connect("mongodb://127.0.0.1:27017/Product");
+mongoose.connect("mongodb://127.0.0.1:27017/ShoppingCartApp");
 
 const ProductSchema = new schemaObj({
   name: { type: String, required: true },
@@ -9,6 +9,7 @@ const ProductSchema = new schemaObj({
   desc: String,
   rating: Number,
   category: String,
+  image: String,
 });
 
 const ProductModel = mongoose.model("product", ProductSchema);

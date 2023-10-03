@@ -71,6 +71,29 @@ app.post("/api/product", (req, res) => {
     });
 });
 
+app.post("/api/products", async (req, res) => {
+  const productsToInsert = req.body.products;
+  if (!Array.isArray(productsToInsert) || productsToInsert.length === 0) {
+    return res.status(400).json({ message: "Invalid or empty batch data" });
+  }
+
+  try {
+    const insertionPromises = productsToInsert.map(async (productData) => {
+      const newProduct = new ProductModel(productData);
+      return newProduct.save();
+    });
+
+    const insertedProducts = await Promise.allSettled(insertionPromises);
+
+    return res
+      .status(200)
+      .json({ message: "Batch insert successful", insertedProducts });
+  } catch (err) {
+    console.error("Batch Insert Error: ", err);
+    return res.status(500).json({ message: "Server Error" });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
 });
