@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 const schemaObj = mongoose.Schema;
 
-mongoose.connect("mongodb://127.0.0.1:27017/ShoppingCartApp");
-
 const ProductSchema = new schemaObj({
   name: { type: String, required: true },
   price: { type: Number, required: true },
