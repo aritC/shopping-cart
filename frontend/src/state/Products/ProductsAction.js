@@ -11,7 +11,7 @@ export const AddProductsToStore = (products) => {
 export const GetAllProductsFromDB = () => {
   return (dispatchEvent) => {
     axios
-      .get("/products")
+      .get("/product/products")
       .then((response) => {
         dispatchEvent(AddProductsToStore(response.data.products));
       })

@@ -13,7 +13,6 @@ export const AddProductToDB = (product) => {
     axios
       .post("/product", product)
       .then((response) => {
-        console.log("Action Log: ", response);
         dispatchEvent(AddProductToStore(response.data));
       })
       .catch((error) => {
