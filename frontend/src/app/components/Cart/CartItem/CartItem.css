@@ -1,0 +1,7 @@
+.cartItem:hover {
+  background-color: #0d6efd;
+}
+
+.cartItem.img {
+  height: 20px;
+}
