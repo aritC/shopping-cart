@@ -1,11 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const NavBar = (props) => {
+  const user = useSelector((store) => store.userReducer.User);
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top  mb-5 px-5">
-      <a className="navbar-brand" href="/">
+    <nav className="navbar navbar-expand-md navbar-dark bg-dark sticky-top  mb-5 px-5">
+      <Link className="navbar-brand" to="/">
         Shopping Cart App
-      </a>
+      </Link>
       <button
         className="navbar-toggler"
         type="button"
@@ -17,22 +21,33 @@ const NavBar = (props) => {
       >
         <span className="navbar-toggler-icon"></span>
       </button>
-      <div className="collapse navbar-collapse" id="navItems">
-        <div className="navbar-nav">
+      <div className="navbar-collapse collapse" id="navItems">
+        <div className="navbar-nav me-auto">
           {props.navItems
             .filter((navItem) => navItem.isNavItem)
             .map((navItem, idx) => {
               const timestamp = Date.now();
               return (
-                <a
+                <Link
                   className="nav-item nav-link"
-                  href={navItem.url}
+                  to={navItem.url}
                   key={idx + timestamp}
                 >
                   {navItem.name}
-                </a>
+                </Link>
               );
             })}
+        </div>
+        <div className="navbar-nav">
+          {user._id !== "" ? (
+            <Link className="nav-item nav-link" to="/login">
+              User Profile
+            </Link>
+          ) : (
+            <Link className="nav-item nav-link" to="/login">
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </nav>
