@@ -16,7 +16,7 @@ let path = require("path"), //path module of node framework
     module: {
       rules: [
         {
-          test: /\.(js|jsx)$/,
+          test: /\.js$|jsx/,
           exclude: /nodeModules/,
           use: {
             loader: "babel-loader",
@@ -30,8 +30,8 @@ let path = require("path"), //path module of node framework
           use: ["style-loader", "css-loader"],
         },
         {
-          test: /\.(png|svg|jpg|jpeg|gif)$/i,
-          type: "asset/resource",
+          test: /\.(png|svg|jpe?g|gif)$/i,
+          type: "file-loader",
         },
       ],
     },
