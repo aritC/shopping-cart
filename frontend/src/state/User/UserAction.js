@@ -1,7 +1,6 @@
 import * as ActionTypes from "../actionTypes";
 import axios from "../../../config/axios.config";
 import { GetCartFromDB } from "../Cart/CartAction";
-import { useNavigate } from "react-router-dom";
 
 export const AddUserToStore = (user) => {
   return {

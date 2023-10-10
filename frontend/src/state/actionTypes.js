@@ -22,3 +22,6 @@ export const AddUserToStore = "USER.ADDUSERTOSTORE";
 export const AddUserToDB = "USER.ADDUSERTODB";
 export const LoginUser = "USER.LOGIN";
 export const LogoutUser = "USER.LOGOUT";
+
+// Coupon
+export const GenerateCoupon = "COUPON.GENERATECOUPON";

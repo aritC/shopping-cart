@@ -8,6 +8,7 @@ import productsReducer from "./Products/ProductsReducer";
 import apiReducer from "./APIState/APIStateReducer";
 import cartReducer from "./Cart/CartReducer";
 import userReducer from "./User/UserReducer";
+import couponReducer from "./Coupon/CouponReducer";
 
 const rootReducer = combineReducers({
   productReducer,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   apiReducer,
   cartReducer,
   userReducer,
+  couponReducer,
 });
 
 export default configureStore(

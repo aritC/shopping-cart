@@ -6,9 +6,11 @@ import Cart from "../components/Cart/Cart";
 import Login from "../components/User/Login/Login";
 import AddUser from "../components/User/AddUser/AddUser";
 import Checkout from "../components/Checkout/Checkout";
+import Coupon from "../components/Coupon/Coupon";
 
 const navRoutes = [
   { url: "/cart", name: "Cart", component: <Cart />, isNavItem: true },
+  { url: "/coupon", name: "Coupon", component: <Coupon />, isNavItem: true },
   { url: "/", name: "Product", component: <Products />, isNavItem: false },
   { url: "/login", name: "Login", component: <Login />, isNavItem: false },
   {
