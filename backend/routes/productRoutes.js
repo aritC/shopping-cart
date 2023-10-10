@@ -1,7 +1,25 @@
 const express = require("express");
 const productRoutes = express.Router();
 
-const ProductModel = require("./models/Product");
+const ProductModel = require("../models/Product");
+
+// Get all products
+productRoutes.get("/products", async (req, res) => {
+  try {
+    const products = await ProductModel.find();
+
+    if (!products || products.length === 0) {
+      return res.status(404).json({ message: "Products not found" });
+    }
+
+    return res
+      .status(200)
+      .json({ message: "Success", totalCount: products.length, products });
+  } catch (err) {
+    console.error("Database Error: ", err);
+    return res.status(500).json({ message: "Server Error" });
+  }
+});
 
 // Get a product by ID
 productRoutes.get("/:id", async (req, res) => {
@@ -14,24 +32,6 @@ productRoutes.get("/:id", async (req, res) => {
     }
 
     return res.status(200).json({ message: "Success", product });
-  } catch (err) {
-    console.error("Database Error: ", err);
-    return res.status(500).json({ message: "Server Error" });
-  }
-});
-
-// Get all products
-productRoutes.get("/", async (req, res) => {
-  try {
-    const products = await ProductModel.find();
-
-    if (!products || products.length === 0) {
-      return res.status(404).json({ message: "Products not found" });
-    }
-
-    return res
-      .status(200)
-      .json({ message: "Success", totalCount: products.length, products });
   } catch (err) {
     console.error("Database Error: ", err);
     return res.status(500).json({ message: "Server Error" });

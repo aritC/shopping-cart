@@ -12,8 +12,17 @@ app.use(cors());
 
 const PORT = 5000;
 
-const productRoutes = require("./models/Product");
+// Products
+const productRoutes = require("./routes/productRoutes");
 app.use("/api/product", productRoutes);
+
+// User
+const userRoutes = require("./routes/userRoutes");
+app.use("/api/user", userRoutes);
+
+// Cart
+const cartRoutes = require("./routes/cartRoutes");
+app.use("/api/cart", cartRoutes);
 
 app.get("/*", (req, res) => {
   return res.status(404).json({ message: "Wrong API Endpoint!" });
