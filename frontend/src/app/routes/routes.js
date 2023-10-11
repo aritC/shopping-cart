@@ -7,6 +7,7 @@ import Login from "../components/User/Login/Login";
 import AddUser from "../components/User/AddUser/AddUser";
 import Checkout from "../components/Checkout/Checkout";
 import Coupon from "../components/Coupon/Coupon";
+import UserProfile from "../components/User/UserProfile/UserProfile";
 
 const navRoutes = [
   {
@@ -40,7 +41,7 @@ const navRoutes = [
   {
     url: "/profile",
     name: "User Profile",
-    component: <Login />,
+    component: <UserProfile />,
     isNavItem: false,
     isAdminRoute: false,
   },

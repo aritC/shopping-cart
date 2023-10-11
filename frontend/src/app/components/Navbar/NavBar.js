@@ -48,7 +48,7 @@ const NavBar = (props) => {
         </div>
         <div className="navbar-nav">
           {user._id !== "" ? (
-            <Link className="nav-item nav-link" to="/login">
+            <Link className="nav-item nav-link" to="/profile">
               User Profile
             </Link>
           ) : (

@@ -38,7 +38,8 @@ export const LoginUser = (userName, password, navigate) => {
   };
 };
 
-export const LogoutUser = () => {
+export const LogoutUser = (navigate) => {
+  navigate("/");
   return {
     type: ActionTypes.AddUserToStore,
     payload: {
