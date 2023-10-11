@@ -9,33 +9,61 @@ import Checkout from "../components/Checkout/Checkout";
 import Coupon from "../components/Coupon/Coupon";
 
 const navRoutes = [
-  { url: "/cart", name: "Cart", component: <Cart />, isNavItem: true },
-  { url: "/coupon", name: "Coupon", component: <Coupon />, isNavItem: true },
-  { url: "/", name: "Product", component: <Products />, isNavItem: false },
-  { url: "/login", name: "Login", component: <Login />, isNavItem: false },
+  {
+    url: "/cart",
+    name: "Cart",
+    component: <Cart />,
+    isNavItem: true,
+    isAdminRoute: false,
+  },
+  {
+    url: "/coupon",
+    name: "Coupon",
+    component: <Coupon />,
+    isNavItem: true,
+    isAdminRoute: false,
+  },
+  {
+    url: "/",
+    name: "Product",
+    component: <Products />,
+    isNavItem: false,
+    isAdminRoute: false,
+  },
+  {
+    url: "/login",
+    name: "Login",
+    component: <Login />,
+    isNavItem: false,
+    isAdminRoute: false,
+  },
   {
     url: "/profile",
     name: "User Profile",
     component: <Login />,
     isNavItem: false,
+    isAdminRoute: false,
   },
   {
     url: "/checkout",
     name: "Checkout",
     component: <Checkout />,
     isNavItem: false,
+    isAdminRoute: false,
   },
   {
     url: "/admin/addProduct",
-    name: "AddNewProduct",
+    name: "Add Product",
     component: <AddNewProduct />,
-    isNavItem: false,
+    isNavItem: true,
+    isAdminRoute: true,
   },
   {
     url: "/admin/addUser",
-    name: "AddNewUser",
+    name: "Add User",
     component: <AddUser />,
-    isNavItem: false,
+    isNavItem: true,
+    isAdminRoute: true,
   },
 ];
 

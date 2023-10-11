@@ -24,7 +24,15 @@ const NavBar = (props) => {
       <div className="navbar-collapse collapse" id="navItems">
         <div className="navbar-nav me-auto">
           {props.navItems
-            .filter((navItem) => navItem.isNavItem)
+            .filter((navItem) => {
+              if (navItem.isNavItem) {
+                if (navItem.isAdminRoute && user.userName === "admin") {
+                  return navItem;
+                } else if (!navItem.isAdminRoute) {
+                  return navItem;
+                }
+              }
+            })
             .map((navItem, idx) => {
               const timestamp = Date.now();
               return (
